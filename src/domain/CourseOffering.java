@@ -2,24 +2,24 @@ package domain;
 import java.util.Date;
 import java.util.List;
 
-public class CSE {
+public class CourseOffering {
 	private Course course;
 	private int section;
 	private Date examDate;
 
-	public CSE(Course course) {
+	public CourseOffering(Course course) {
 		this.course = course;
 		this.section = 1;
 		this.examDate = null;
 	}
 
-	public CSE(Course course, Date examDate) {
+	public CourseOffering(Course course, Date examDate) {
 		this.course = course;
 		this.section = 1;
 		this.examDate = examDate;
 	}
 
-	public CSE(Course course, Date examDate, int section) {
+	public CourseOffering(Course course, Date examDate, int section) {
 		this.course = course;
 		this.section = section;
 		this.examDate = examDate;
@@ -39,9 +39,9 @@ public class CSE {
 
 	public int getSection() { return section; }
 
-	public static int getUnitsRequested(List<CSE> courses) {
+	public static int getUnitsRequested(List<CourseOffering> courses) {
 		int unitsRequested = 0;
-		for (CSE o : courses)
+		for (CourseOffering o : courses)
 			unitsRequested += o.getCourse().getUnits();
 		return unitsRequested;
 	}
