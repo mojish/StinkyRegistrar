@@ -57,9 +57,9 @@ public class EnrollmentController {
     }
 
     private static void checkUnitsLimit(Student s, List<CourseOffering> courses) throws EnrollmentRulesViolationException {
-        if ((s.getGPA() < 12 && getUnitsRequested(courses) > 14) ||
-                (s.getGPA() < 16 && getUnitsRequested(courses) > 16) ||
-                (getUnitsRequested(courses) > 20))
+        if ((s.getGPA() < Constants.MIN_GPA && getUnitsRequested(courses) > Constants.MIN_UNITS) ||
+                (s.getGPA() < Constants.MID_GPA && getUnitsRequested(courses) > Constants.MID_UNITS) ||
+                (getUnitsRequested(courses) > Constants.MAX_UNITS))
             throw new EnrollmentRulesViolationException(
                     String.format("Number of units (%d) requested does not match GPA of %f",
                             getUnitsRequested(courses), s.getGPA()));
